@@ -1,1 +1,0 @@
-# tugberkbardak.github.io
