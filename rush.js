@@ -39,7 +39,7 @@ function calculateBMI() {
 function calculateOneRepMax() {
   var reps = document.getElementById("reps").value;
   var weight2 = document.getElementById("weight2").value;
-  var oneRepMax = weight2 * (1 + (0.0333 * reps));
+  var oneRepMax = weight2 * (reps ** 0.1);
   var result2 = document.getElementById("result2");
 
   if (isNaN(oneRepMax)) {
