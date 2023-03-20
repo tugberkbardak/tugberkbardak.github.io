@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Muscle Rush</title>
+
+    <link rel="stylesheet" href="rush.css">
+
+    <script src="rush.js">
+    </script>
+
+</head>
+<body>
+    
+
+    <h1>MUSCLE RUSH</h1>
+    
+    <a href="#calcbmi">
+        <img class="bmi-icon"  src="icons8-weighing-100.png" alt="BMI Calculator">
+    </a>
+    <a href="#repmax">
+        <img class="rm1-icon"  src="icons8-ez-curl-bar-96.png" alt="1 Rep Max Calculator">
+    </a>
+    
+    
+    <div>
+        
+
+       <pre>
+        <img class="bicep" src="bicepss.png">
+        Test your
+        muscle
+        knowledge
+        in just 30
+        seconds!
+        <img class="bicep1" src="bicepss1.png">
+        </pre> 
+        
+    </div>
+
+    <div class="buttn">
+
+        <button class="but">GET STARTED</button>
+
+    </div>
+
+<!-- BMI -->
+
+    <div class="bmi-container">
+
+        <h2 id="calcbmi">BMI Calculator</h2>
+        <div class="bmiinput-container">
+          <label for="height">Height(cm):</label>
+          <input type="number" id="height" placeholder="Enter your height in cm">
+        </div>
+
+
+        <div class="input-container">
+          <label for="weight">Weight(kg):</label>
+          <input type="number" id="weight" placeholder="Enter your weight in kg">
+        </div>
+
+
+        <button id="calculate-btn" onclick="calculateBMI()">Calculate BMI</button>
+        <div id="result"></div>
+
+      </div>
+      
+
+<!-- 1REPMAX -->
+        <div class="rempaxcontainer">
+        <h3 id="repmax">1 Rep Max Calculator</h3>
+        <div class="input-container2">
+            <label for="weight2">Weight(kg):</label>
+            <input type="number" id="weight2" placeholder="Enter the weight in kg">
+            </div>
+            <div class="input-container2">
+                <label for="reps">Reps:</label>
+                <input type="number" id="reps" placeholder="Enter number of reps">
+            </div>
+            <button id="calculate-btn2" onclick="calculateOneRepMax()">Calculate 1RM</button>
+            <div id="result2"></div>
+        </div>
+    
+</body>
+</html>
