@@ -1,0 +1,42 @@
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.timer {
+  font-size: 24px;
+  font-weight: bold;
+  margin-top: 20px;
+}
+
+.score {
+  font-size: 24px;
+  font-weight: bold;
+  margin-top: 20px;
+}
+
+.image-container {
+  margin-top: 50px;
+}
+
+.input-container {
+  margin-top: 20px;
+}
+
+#answer {
+  font-size: 20px;
+  padding: 5px 10px;
+  border: 2px solid #ccc;
+  border-radius: 5px;
+}
+
+#submit {
+  font-size: 20px;
+  padding: 5px 10px;
+  border: none;
+  border-radius: 5px;
+  background-color: #4CAF50;
+  color: white;
+  cursor: pointer;
+}
