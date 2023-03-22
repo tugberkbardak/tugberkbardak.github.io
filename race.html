@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Race Platform</title>
+	<style>
+		body {
+      background: rgb(58,95,180);
+background: linear-gradient(90deg, rgba(58,95,180,1) 28%, rgba(38,166,255,1) 100%);
+			text-align: center;
+      
+		}
+
+
+    
+      h1 {
+    color: #21E6C1;
+    font-size: 3.2rem;
+    font-family:  Georgia, 'Times New Roman', Times, serif;
+    text-shadow: 6px 4px 8px rgb(34, 34, 34);
+    margin-top: auto;
+
+    }
+
+
+		img {
+			max-width: 50%;
+			max-height: 50%;
+			margin: 20px;
+		}
+
+		input[type="text"] {
+    width: 230px;
+    height: 30px;
+    padding: 5px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-family: consolas;
+
+		font-size: 15px;
+		padding: 10px;
+		margin: 20px;
+		}
+
+		button {
+			font-size: 20px;
+			padding: 10px;
+			margin: 20px;
+      font-size: 3rem;
+      border:none;
+      border-radius: 22px;
+      color:#21E6C1;
+      background-color: black;
+      filter: drop-shadow(7px 4px 10px rgba(0, 0, 0, 0.55));
+      width: 150px;
+      transition-duration: 0.4s;
+      cursor: pointer;
+		}
+
+    button:hover{
+      
+      filter: drop-shadow(12px 8px 10px rgba(0, 0, 0, .75));
+}
+    
+
+		#time {
+			font-size: 30px;
+			margin-top: 50px;
+		}
+
+		#score {
+			font-size: 40px;
+			margin-top: 20px;
+		}
+
+
+	</style>
+</head>
+<body>
+	<h1>Race Platform</h1>
+	<button id="start">Start</button>
+	<div>
+		<img id="image" src="adam.png" alt="" />
+	</div>
+	<div>
+		<input type="text" id="answer" placeholder="Enter the name of the image" />
+	</div>
+	<div>
+		<span id="time"></span>
+	</div>
+	<div>
+		<span id="score"></span>
+	</div>
+
+	<script>
+		// Declare variables
+		const images = [
+			{
+				name: "biceps",
+				url: "adam.biceps.png"
+			},
+			{
+				name: "abs",
+				url: "adam.abs.png"
+			},
+			{
+				name: "calves",
+				url: "adam.calves.png"
+			},
+			{
+				name: "chest",
+				url: "adam.chest.png"
+			},
+			{
+				name: "forearm",
+				url: "adam.forearm.png"
+			},
+			{
+				name: "internal legs",
+				url: "adam.internal.png"
+			},
+			{
+				name: "hips",
+				url: "adam.kalca.png"
+			},
+			{
+				name: "lats",
+				url: "adam.lats.png"
+			},
+			{
+				name: "quads",
+				url: "adam.quads.png"
+			},
+			{
+				name: "lowerback",
+				url: "adam.lowerback.png"
+			},
+			{
+				name: "rear delts",
+				url: "adam.rear.png"
+			},
+			{
+				name: "trapez",
+				url: "adam.trapez.png"
+			},
+			{
+				name: "upper back",
+				url: "adam.upperback.png"
+			},
+			{
+				name: "triceps",
+				url: "adam.triceps.png"
+			},
+
+		];
+		let time = 30;
+		let score = 0;
+    let intervalId;
+
+		// Function to generate a random image and name
+		function generateRandomImage() {
+			// Get a random image and name
+			const randomIndex = Math.floor(Math.random() * images.length);
+			const randomImage = images[randomIndex];
+
+			// Set the image source and alt text
+			document.getElementById("image").src = randomImage.url;
+			document.getElementById("image").alt = randomImage.name;
+
+			// Clear the input field
+			document.getElementById("answer").value = "";
+		}
+
+		// Function to update the timer and score
+    function update() {
+		// Update the time and score
+		document.getElementById("time").innerHTML = `Time: ${time}`;
+		document.getElementById("score").innerHTML = `Score: ${score}`;
+
+		// Decrement the time
+		time--;
+
+		// End the game if time runs out
+		if (time < 0) {
+			clearInterval(intervalId);
+			document.getElementById("image").style.display = "none";
+			document.getElementById("answer").style.display = "none";
+			document.getElementById("start").style.display = "none";
+			document.getElementById("time").style.display = "none";
+			document.getElementById("score").innerHTML = `Final Score: ${score}`;
+			return;
+		}
+	}
+
+	// Add event listener to the start button
+	document.getElementById("start").addEventListener("click", function() {
+		// Hide the start button
+		document.getElementById("start").style.display = "none";
+
+		// Generate the first image and name
+		generateRandomImage();
+
+		// Set the timer
+		const intervalId = setInterval(function() {
+			update();
+		}, 1000);
+
+		// Add event listener to the answer input field
+		document.getElementById("answer").addEventListener("keydown", function(event) {
+			// Check if the enter key was pressed
+			if (event.keyCode === 13) {
+				// Get the answer from the input field
+				const answer = document.getElementById("answer").value.toLowerCase();
+
+				// Get the name of the current image
+				const imageName = document.getElementById("image").alt.toLowerCase();
+
+				// Check if the answer is correct
+				if (answer === imageName) {
+					score++;
+				}
+
+				// Generate a new image and name
+				generateRandomImage();
+			}
+		});
+	});
+</script>
+</body>
+</html>
